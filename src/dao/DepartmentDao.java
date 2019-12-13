@@ -1,9 +1,11 @@
 package dao;
 import domain.Department;
+import domain.School;
 import helper.JdbcHelper;
-
 import java.sql.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.TreeSet;
 
 public final class DepartmentDao {
@@ -11,6 +13,28 @@ public final class DepartmentDao {
 	private DepartmentDao(){}
 	public static DepartmentDao getInstance(){
 		return departmentDao;
+	}
+	public Set<Department> findAllBySchool(Integer schoolId) throws SQLException {
+		Set<Department> departments = new HashSet<Department>();
+		//建立连接
+		Connection connection = JdbcHelper.getConn();
+		String selectSchool_sql = "SELECT * FROM department WHERE school_id=?";
+		//在该连接上创建预编译语句对象
+		PreparedStatement preparedStatement = connection.prepareStatement(selectSchool_sql);
+		//为预编译参数赋值
+		preparedStatement.setInt(1,schoolId);
+		//执行预编译语句
+		ResultSet resultSet = preparedStatement.executeQuery();
+		//若结果集仍然有下一条记录，则执行循环体
+		while (resultSet.next()){
+			School school = SchoolDao.getInstance().find(resultSet.getInt("school_id"));
+			//创建Department对象，根据遍历结果中的id,description,no,remarks，school值
+			Department department = new Department(resultSet.getInt("id"),resultSet.getString("description"),resultSet.getString("no"),resultSet.getString("remarks"),school);
+			departments.add(department);
+		}
+		//关闭资源
+		JdbcHelper.close(resultSet,preparedStatement,connection);
+		return departments;
 	}
 	//返回结果集对象
 	public Collection<Department> findAll(){

@@ -14,20 +14,13 @@ public final class DepartmentService {
     public static DepartmentService getInstance(){
         return departmentService;
     }
+    //定义方法根据外键id查询
+    public Collection<Department> findALLBySchool(Integer schoolId) throws SQLException {
+        return departmentDao.findAllBySchool(schoolId);
+    }
+    //定义相关所需的方法(增删改查)
     public Collection<Department> findAll(){
         return departmentDao.findAll();
-    }
-    public Collection<Department> getAll(){
-        return departmentDao.findAll();
-    }
-    public Collection<Department> getAll(School school){
-        Collection<Department> departments = new HashSet<Department>();
-        for(Department department: departmentDao.findAll()){
-            if(department.getSchool()==school){
-                departments.add(department);
-            }
-        }
-        return departments;
     }
     public Department find(Integer id)throws SQLException{
         return departmentDao.find(id);

@@ -2,6 +2,7 @@ package controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import domain.Department;
 import service.DepartmentService;
 import util.JSONUtil;
@@ -28,13 +29,8 @@ public class DepartmentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
-        //设置请求字符编码为UTF-8
-        //request.setCharacterEncoding("UTF-8");
         //根据request对象，获得代表参数的JSON字串
         String department_json = JSONUtil.getJSON(request);
-
         //将JSON字串解析为Department对象
         Department departmentToAdd = JSON.parseObject(department_json, Department.class);
         System.out.println(departmentToAdd);
@@ -84,10 +80,6 @@ public class DepartmentController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
-        //设置请求字符编码为UTF-8
-        //request.setCharacterEncoding("UTF-8");
         String department_json = JSONUtil.getJSON(request);
         //将JSON字串解析为Degree对象
         Department departmentToAdd = JSON.parseObject(department_json, Department.class);
@@ -112,20 +104,23 @@ public class DepartmentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
         //创建JSON对象message，以便往前端响应信息
         JSONObject message = new JSONObject();
         //读取参数id
         String id_str = request.getParameter("id");
+        String paraType = request.getParameter("paraType");
         try {
-
-            //如果id = null, 表示响应所有对象，否则响应id指定的对象
-            if (id_str == null) {
-                responseDepartments(response);
-            } else {
+            //如果id = null, 表示响应所有院系对象，否则响应id指定的院系对象
+            if (id_str != null) {
                 int id = Integer.parseInt(id_str);
-                responseDepartment(id, response);
+                //如果paraType为空，响应对应id的院系对象；如果paraType为school时，响应对应school_id的所有院系对象
+                if (paraType == null) {
+                    responseDepartment(id,response);
+                } else if (paraType.equals("school")){
+                    responseDepartmentBySchool(id,response);
+                }
+            }else{
+                responseDepartments(response);
             }
         }catch (SQLException e){
             message.put("message", "数据库操作异常");
@@ -157,6 +152,15 @@ public class DepartmentController extends HttpServlet {
         //控制台打印结果
         System.out.println(departments_json);
         //浏览器展示结果
+        response.getWriter().println(departments_json);
+    }
+
+    //响应对应school_id所有的院系对象
+    private void responseDepartmentBySchool(int id, HttpServletResponse response) throws SQLException, IOException {
+        //获得对应school_id的所有院系
+        Collection<Department>departments = DepartmentService.getInstance().findALLBySchool(id);
+        String departments_json = JSON.toJSONString(departments);
+        //响应Departments_json到前端
         response.getWriter().println(departments_json);
     }
 }

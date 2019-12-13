@@ -5,31 +5,37 @@ import java.util.Set;
 public final class Teacher implements Comparable<Teacher>,Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
+	private String no;
 	private String name;
 	private ProfTitle profTitle;
 	private Degree degree;
 	private Department department;
-
+	//定义构造器
 	public Teacher(Integer id,
+				   String no,
 				   String name,
 				   ProfTitle title,
 				   Degree degree,
                    Department department) {
-		this(name, title, degree, department);
+		this(no,name, title, degree, department);
 		this.id = id;
 
 	}
+	//定义构造器
 	public Teacher(
+			       String no,
 				   String name,
 				   ProfTitle title,
 				   Degree degree,
 				   Department department) {
 		super();
+		this.no = no;
 		this.name = name;
 		this.profTitle = title;
 		this.degree = degree;
 		this.department = department;
 	}
+	//定义构造器
 	public Teacher(
 			String name) {
 		super();
@@ -43,7 +49,13 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public String getNo() {
+		return no;
+	}
 
+	public void setNo(String no) {
+		this.no = no;
+	}
 	public String getName() {
 		return name;
 	}

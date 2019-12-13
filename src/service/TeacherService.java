@@ -14,6 +14,7 @@ public final class TeacherService {
 	public static TeacherService getInstance(){
 		return teacherService;
 	}
+	//定义相关所需的方法(增删改查)
 	public Collection<Teacher> findAll(){
 		return teacherDao.findAll();
 	}

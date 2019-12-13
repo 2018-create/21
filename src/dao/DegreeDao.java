@@ -40,6 +40,7 @@ public final class DegreeDao {
 				//添加到集合degrees中
 				degrees.add(degree);
 			}
+			//关闭连接
 			connection.close();
 		}catch (SQLException e){
 			e.printStackTrace();

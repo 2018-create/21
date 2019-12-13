@@ -15,6 +15,7 @@ public final class DegreeService {
     public static DegreeService getInstance(){
         return degreeService;
     }
+    //定义相关所需的方法(增删改查)
     public Collection<Degree> findAll(){
         return degreeDao.findAll();
     }

@@ -84,7 +84,7 @@ public final class Degree implements
 		return true;
 	}
 
-
+//
 	/**
 	 * Constructs a <code>String</code> with all attributes
 	 * in name = value format.

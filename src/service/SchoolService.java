@@ -12,6 +12,7 @@ public final class SchoolService {
 	public static SchoolService getInstance(){
 		return schoolService;
 	}
+	//定义相关所需的方法(增删改查)
 	public Collection<School> findAll(){
 		return schoolDao.findAll();
 	}

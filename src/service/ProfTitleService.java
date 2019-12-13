@@ -14,12 +14,13 @@ public final class ProfTitleService {
 	public static ProfTitleService getInstance(){
 		return profTitleService;
 	}
+	//定义相关所需的方法(增删改查)
 	public Collection<ProfTitle> findAll(){
 		return profTitleDao.findAll();
 	}
-	public Collection<ProfTitle> getAll(){
-		return profTitleDao.findAll();
-	}
+	//public Collection<ProfTitle> getAll(){
+		//return profTitleDao.findAll();
+	//}
 
 	public ProfTitle find(Integer id)throws SQLException,ClassNotFoundException{
 		return profTitleDao.find(id);

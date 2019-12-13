@@ -1,6 +1,7 @@
 package controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import domain.Teacher;
 import service.TeacherService;
 import util.JSONUtil;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -27,10 +29,6 @@ public class TeacherController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
-        //设置请求字符编码为UTF-8
-        //request.setCharacterEncoding("UTF-8");
         //根据request对象，获得代表参数的JSON字串
         String teacher_json = JSONUtil.getJSON(request);
         //将JSON字串解析为Teacher对象
@@ -56,8 +54,6 @@ public class TeacherController extends HttpServlet {
     //DELETE 49.235.219.168:8080/bysj/teacher.ctl
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
         //读取参数id
         String id_str = request.getParameter("id");
         int id = Integer.parseInt(id_str);
@@ -82,10 +78,6 @@ public class TeacherController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
-        //设置请求字符编码为UTF-8
-        //request.setCharacterEncoding("UTF-8");
         String teacher_json = JSONUtil.getJSON(request);
         //将JSON字串解析为Teacher对象
         Teacher teacherToAdd = JSON.parseObject(teacher_json, Teacher.class);
@@ -110,8 +102,6 @@ public class TeacherController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //设置响应字符编码为UTF-8
-        //response.setContentType("text/html;charset=UTF-8");
         //读取参数id
         String id_str = request.getParameter("id");
         //创建JSON对象message，以便往前端响应信息

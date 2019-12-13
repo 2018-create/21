@@ -7,6 +7,7 @@ public final class ProfTitle  implements Comparable<ProfTitle>,Serializable{
 	private String description;
 	private String no;
 	private String remarks;
+	//定义构造器
 	public ProfTitle(Integer id, String description, String no, String remarks) {
 		super();
 		this.id = id;

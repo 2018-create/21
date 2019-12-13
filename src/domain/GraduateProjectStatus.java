@@ -1,36 +1,28 @@
 package domain;
 import java.io.Serializable;
 
-public final class Department implements Comparable<Department>,Serializable{
-	private Integer id;
+public final class GraduateProjectStatus implements Comparable<GraduateProjectStatus>,Serializable{
+	private Integer id;//对应着数据库表中的非业务主键 object id
 	private String description;
 	private String no;
 	private String remarks;
-	private School school;
-	public Department(Integer id, String description, String no,
-			String remarks, School school) {
-		this(description, no, remarks, school);
+	//定义构造器
+	public GraduateProjectStatus(Integer id, String description, String no, String remarks) {
+		this(description, no, remarks);
 		this.id = id;
 	}
-
-	public Department(String description, String no,
-					  String remarks, School school) {
-		super();
-		this.description = description;
-		this.no = no;
-		this.remarks = remarks;
-		this.school = school;
-	}
-	public Department(String description, String no,
-					  String remarks) {
+	//定义构造器
+	public GraduateProjectStatus(String description, String no, String remarks) {
 		super();
 		this.description = description;
 		this.no = no;
 		this.remarks = remarks;
 	}
+	
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -59,14 +51,6 @@ public final class Department implements Comparable<Department>,Serializable{
 		this.remarks = remarks;
 	}
 
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
-
 	/**
 	 * Constructs a <code>String</code> with all attributes
 	 * in name = value format.
@@ -80,23 +64,20 @@ public final class Department implements Comparable<Department>,Serializable{
 	    
 	    String retValue = "";
 	    
-	    retValue = "Department ( "
+	    retValue = "School ( "
 	        + super.toString() + TAB
 	        + "id = " + this.id + TAB
 	        + "description = " + this.description + TAB
 	        + "no = " + this.no + TAB
 	        + "remarks = " + this.remarks + TAB
-	        + "school_json = " + this.school + TAB
 	        + " )";
 	
 	    return retValue;
 	}
 
 	@Override
-	public int compareTo(Department o) {
+	public int compareTo(GraduateProjectStatus o) {
 		// TODO Auto-generated method stub
-		return this.id-o.id;
+		return this.id - o.id;
 	}
-	
-	
 }
