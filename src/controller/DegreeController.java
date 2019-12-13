@@ -40,13 +40,13 @@ public class DegreeController extends HttpServlet {
         try {
             //增加加Degree对象
             DegreeService.getInstance().add(degreeToAdd);
-            resp.put("MSG", "添加成功");
+            resp.put("message", "添加成功");
         }catch (SQLException e){
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e){
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
         //响应
         response.getWriter().println(resp);
@@ -63,13 +63,13 @@ public class DegreeController extends HttpServlet {
             //到数据库表中删除对应的学院
             DegreeService.getInstance().delete(id);
             //加入数据信息
-            resp.put("MSG", "删除成功");
+            resp.put("message", "删除成功");
         }catch (SQLException e){
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e){
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
         //响应
         response.getWriter().println(resp);
@@ -87,13 +87,13 @@ public class DegreeController extends HttpServlet {
             //增加加Degree对象
             DegreeService.getInstance().update(degreeToAdd);
             //加入数据信息
-            resp.put("MSG", "修改成功");
+            resp.put("message", "修改成功");
         }catch (SQLException e){
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e){
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
         //响应
         response.getWriter().println(resp);

@@ -3,6 +3,7 @@ package domain;
 import java.io.Serializable;
 
 public final class GraduateProjectType implements Comparable<GraduateProjectType>,Serializable  {
+	//定义所需的字段
 	private Integer id;
 	private String description;
 	private String no;
@@ -15,7 +16,7 @@ public final class GraduateProjectType implements Comparable<GraduateProjectType
 		this.no = no;
 		this.remarks = remarks;
 	}
-
+   //定义所需的方法返回对应字段
 	public Integer getId() {
 		return id;
 	}
@@ -29,40 +30,9 @@ public final class GraduateProjectType implements Comparable<GraduateProjectType
 		return remarks;
 	}
 
-
-
-	/**
-	 * Constructs a <code>String</code> with all attributes
-	 * in name = value format.
-	 *
-	 * @return a <code>String</code> representation 
-	 * of this object.
-	 */
-	public String toString()
-	{
-	    final String TAB = "    ";
-	    
-	    String retValue = "";
-	    
-	    retValue = "GraduateProjectType ( "
-	        + super.toString() + TAB
-	        + "id = " + this.id + TAB
-	        + "description = " + this.description + TAB
-	        + "no = " + this.no + TAB
-	        + "remarks = " + this.remarks + TAB
-	        + " )";
-	
-	    return retValue;
-	}
-
-
-
 	@Override
 	public int compareTo(GraduateProjectType o) {
 		// TODO Auto-generated method stub
 		return this.id-o.id;
 	}
-	
-	
-	
 }

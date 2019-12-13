@@ -33,7 +33,6 @@ public final class GraduateProjectDao {
 					resultSet.getString("title"),
 					GraduateProjectCategoryDao.getInstance().find(resultSet.getInt("graduateProjectCategory_id")),
 					GraduateProjectTypeDao.getInstance().find(resultSet.getInt("graduateProjectType_id")),
-					GraduateProjectStatusDao.getInstance().find(resultSet.getInt("graduateProjectStatus_id")),
 					TeacherDao.getInstance().find(resultSet.getInt("teacher_id")));
 			graduateProjects.add(graduateProject);
 		}
@@ -47,13 +46,12 @@ public final class GraduateProjectDao {
 		Connection connection = JdbcHelper.getConn();
 		//创建语句盒子并执行sql语句
 		PreparedStatement preparedStatement = connection.prepareStatement(
-				"INSERT INTO graduateproject (title,teacher_id,graduateprojectcategory_id,graduateprojectstatus_id,graduateprojecttype_id) VALUES (?,?,?,?,?)");
+				"INSERT INTO graduateproject (title,teacher_id,graduateprojectcategory_id,graduateprojecttype_id) VALUES (?,?,?,?)");
 		//为相应参数赋值
 		preparedStatement.setString(1,graduateProject.getTitle());
 		preparedStatement.setInt(2,graduateProject.getTeacher().getId());
 		preparedStatement.setInt(3,graduateProject.getGraduateProjectCategory().getId());
-		preparedStatement.setInt(4,graduateProject.getGraduateProjectStatus().getId());
-		preparedStatement.setInt(5,graduateProject.getGraduateProjectType().getId());
+		preparedStatement.setInt(4,graduateProject.getGraduateProjectType().getId());
 		int affectedRowNum = preparedStatement.executeUpdate();
 		//关闭资源
 		JdbcHelper.close(preparedStatement,connection);
@@ -64,14 +62,13 @@ public final class GraduateProjectDao {
 		//建立连接
 		Connection connection = JdbcHelper.getConn();
 		//创建语句盒子并执行sql语句
-		PreparedStatement pstmt = connection.prepareStatement("update graduateproject set title = ?,teacher_id = ?,graduateprojectcategory_id = ?,graduateprojectstatus_id = ?,graduateprojecttype_id = ? where id = ?");
+		PreparedStatement pstmt = connection.prepareStatement("update graduateproject set title = ?,teacher_id = ?,graduateprojectcategory_id = ?,graduateprojecttype_id = ? where id = ?");
 		//为相应参数赋值
 		pstmt.setString(1,graduateProject.getTitle());
 		pstmt.setInt(2,graduateProject.getTeacher().getId());
 		pstmt.setInt(3,graduateProject.getGraduateProjectCategory().getId());
-		pstmt.setInt(4,graduateProject.getGraduateProjectStatus().getId());
-		pstmt.setInt(5,graduateProject.getGraduateProjectType().getId());
-		pstmt.setInt(6,graduateProject.getId());
+		pstmt.setInt(4,graduateProject.getGraduateProjectType().getId());
+		pstmt.setInt(5,graduateProject.getId());
 		int affectedRowNum = pstmt.executeUpdate();
 		return affectedRowNum > 0;
 	}
@@ -93,14 +90,11 @@ public final class GraduateProjectDao {
 					GraduateProjectCategoryDao.getInstance().find(resultSet.getInt("graduateProjectCategory_id"));
 			GraduateProjectType graduateProjectType =
 					GraduateProjectTypeDao.getInstance().find(resultSet.getInt("graduateProjectType_id"));
-			GraduateProjectStatus graduateProjectStatus =
-					GraduateProjectStatusDao.getInstance().find(resultSet.getInt("graduateProjectStatus_id"));
 			Teacher teacher = TeacherDao.getInstance().find(resultSet.getInt("teacher_id"));
 			graduateProject = new GraduateProject(resultSet.getInt("id"),
 					resultSet.getString("title"),
 					graduateProjectCategory,
 					graduateProjectType,
-					graduateProjectStatus,
 					teacher);
 		}
 		//关闭资源

@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "374100dc-c397-4031-a040-e16fccabd5f4",
+		"name": "GraduateProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "graduateProject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/graduateProject.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graduateProject.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graduateProject  Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/graduateProject.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graduateProject.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graduateProject  Post Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/graduateProject.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graduateProject.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graduateProject  Post Copy Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/graduateProject.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graduateProject.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

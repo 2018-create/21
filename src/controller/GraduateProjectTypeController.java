@@ -42,13 +42,15 @@ public class GraduateProjectTypeController extends HttpServlet {
             //增加加GraduateProjectType对象
             GraduateProjectTypeService.getInstance().add(graduateProjectTypeToAdd);
             //加入数据信息
-            resp.put("MSG", "添加成功");
+            resp.put("message", "添加成功");
         }catch (SQLException e){
+            //打印具体错误信息
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e) {
+            //打印具体错误信息
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
         //响应
         response.getWriter().println(resp);
@@ -65,23 +67,23 @@ public class GraduateProjectTypeController extends HttpServlet {
             //到数据库表中删除
             DepartmentService.getInstance().delete(id);
             //加入数据信息
-            resp.put("MSG", "删除成功");
+            resp.put("message", "删除成功");
         }catch (SQLException e){
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e){
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
-        //响应
+        //向客户端响应数据
         response.getWriter().println(resp);
     }
     //PUT 49.235.219.168:8080/bysj/graduateProjectType.ctl
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String graduateProjectType_json = JSONUtil.getJSON(request);
         //将JSON字串解析为GraduateProjectType对象
+        String graduateProjectType_json = JSONUtil.getJSON(request);
         GraduateProjectType graduateProjectTypeToAdd = JSON.parseObject(graduateProjectType_json, GraduateProjectType.class);
         //创建JSON对象
         JSONObject resp = new JSONObject();
@@ -89,13 +91,13 @@ public class GraduateProjectTypeController extends HttpServlet {
             //增加加GraduateProjectType对象
             GraduateProjectTypeService.getInstance().update(graduateProjectTypeToAdd);
             //加入数据信息
-            resp.put("MSG", "修改成功");
+            resp.put("message", "修改成功");
         }catch (SQLException e){
             e.printStackTrace();
-            resp.put("MSG", "数据库操作异常");
+            resp.put("message", "数据库操作异常");
         }catch (Exception e){
             e.printStackTrace();
-            resp.put("MSG", "网络异常");
+            resp.put("message", "网络异常");
         }
         //响应
         response.getWriter().println(resp);

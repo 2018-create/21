@@ -24,20 +24,10 @@ public final class UserService {
     public boolean add(User user, Connection connection) throws SQLException {
         return userDao.add(user,connection);
     }
-    public boolean changePassword(Integer id,String password) throws SQLException {
-        return userDao.changePassword(id,password);
-    }
     public User login(String username,String password) throws SQLException{
         return userDao.login(username,password);
     }
     public boolean delete(Integer id) throws SQLException {
         return userDao.delete(id);
     }
-    public User findByUsername(String username) throws SQLException {
-        return userDao.findByUsername(username);
-    }
-    public User findById(Integer id) throws SQLException {
-        return userDao.find(id);
-    }
-
 }

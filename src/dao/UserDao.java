@@ -103,8 +103,12 @@ public class UserDao {
 		preparedStatement.setString(1, username);
 		preparedStatement.setString(2, password);
 		ResultSet resultSet = preparedStatement.executeQuery();
-		resultSet.next();
-		User user = new User(resultSet.getString("username"), resultSet.getString("password"),TeacherService.getInstance().find(resultSet.getInt("teacher_id")));
+		User user = null;
+		while (resultSet.next()){
+			user= new User(resultSet.getString("username"),
+					resultSet.getString("username"),
+					TeacherService.getInstance().find(resultSet.getInt("teacher_id")));
+		}
 		return user;
 	}
 }

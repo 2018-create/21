@@ -42,33 +42,6 @@ public final class GraduateProjectCategory implements Comparable<GraduateProject
 	public String getRemarks() {
 		return remarks;
 	}
-
-
-
-	/**
-	 * Constructs a <code>String</code> with all attributes
-	 * in name = value format.
-	 *
-	 * @return a <code>String</code> representation 
-	 * of this object.
-	 */
-	public String toString()
-	{
-	    final String TAB = "    ";
-	    
-	    String retValue = "";
-	    
-	    retValue = "ProjectCategrory ( "
-	        + super.toString() + TAB
-	        + "id = " + this.id + TAB
-	        + "description = " + this.description + TAB
-	        + "no = " + this.no + TAB
-	        + "remarks = " + this.remarks + TAB
-	        + " )";
-	
-	    return retValue;
-	}
-
 	@Override
 	public int compareTo(GraduateProjectCategory o) {
 		// TODO Auto-generated method stub

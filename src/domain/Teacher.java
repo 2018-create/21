@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 public final class Teacher implements Comparable<Teacher>,Serializable {
-	private static final long serialVersionUID = 1L;
+	//定义所需的字段
 	private Integer id;
 	private String no;
 	private String name;
@@ -41,7 +41,7 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 		super();
 		this.name = name;
 	}
-
+    //定义所需的方法，返回对应字段
 	public Integer getId() {
 		return id;
 	}
@@ -87,38 +87,9 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-
-
 	@Override
 	public int compareTo(Teacher o) {
 		// TODO Auto-generated method stub
 		return this.id-o.getId();
 	}
-
-
-	/**
-	 * Constructs a <code>String</code> with all attributes
-	 * in name = value format.
-	 *
-	 * @return a <code>String</code> representation 
-	 * of this object.
-	 */
-	public String toString()
-	{
-	    final String TAB = "    ";
-	    
-	    String retValue = "";
-	    
-	    retValue = "Teacher ( "
-	        + super.toString() + TAB
-	        + "id = " + this.id + TAB
-	        + "name = " + this.name + TAB
-	        + "title = " + this.profTitle + TAB
-	        + "degree = " + this.degree + TAB
-	        + "department = " + this.department + TAB
-	        + " )";
-	
-	    return retValue;
-	}
-
 }

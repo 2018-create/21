@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Comparable<User>,Serializable{
+	//定义相关字段
 	private Integer id;
 	private String username;
 	private String password;
 	private Date loginTime;
 	private Teacher teacher;
-	
+	//定义默认构造器
 	public User(){}
 	//定义构造器
 	public User(String username, String password,
@@ -21,7 +22,7 @@ public class User implements Comparable<User>,Serializable{
 		//this.loginTime = loginTime;
 		this.teacher = teacher;
 	}
-
+    //定义相关方法返回对应字段
 	public Integer getId() {
 		return id;
 	}
@@ -46,14 +47,6 @@ public class User implements Comparable<User>,Serializable{
 		this.password = password;
 	}
 
-	public Date getLoginTime() {
-		return loginTime;
-	}
-
-	public void setLoginTime(Date loginTime) {
-		this.loginTime = loginTime;
-	}
-
 	public Teacher getTeacher() {
 		return teacher;
 	}
@@ -61,36 +54,9 @@ public class User implements Comparable<User>,Serializable{
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-
-	/**
-	 * Constructs a <code>String</code> with all attributes
-	 * in name = value format.
-	 *
-	 * @return a <code>String</code> representation 
-	 * of this object.
-	 */
-	public String toString()
-	{
-	    final String TAB = "    ";
-	    
-	    String retValue = "";
-	    
-	    retValue = "Login ( "
-	        + super.toString() + TAB
-	        + "id = " + this.id + TAB
-	        + "username = " + this.username + TAB
-	        + "password = " + this.password + TAB
-	        + "loginTime = " + this.loginTime + TAB
-	        + "teacher = " + this.teacher + TAB
-	        + " )";
-	
-	    return retValue;
-	}
-
 	@Override
 	public int compareTo(User o) {
 		// TODO Auto-generated method stub
 		return this.id-o.id;
 	}
-
 }

@@ -32,11 +32,7 @@ public final class GraduateProjectService {
 	public boolean delete(Integer id) throws SQLException, ClassNotFoundException {
 		return graduateProjectDao.delete(id);
 	}
-
-
 	public boolean add(GraduateProject GraduateProject) throws SQLException, ClassNotFoundException {
 		return graduateProjectDao.add(GraduateProject);
 	}
-
-
 }
