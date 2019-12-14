@@ -54,8 +54,6 @@ public class DepartmentController extends HttpServlet {
     //DELETE  49.235.219.168:8080/bysj/department.ctl
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //响应
-        //response.setContentType("html/text;charset=UTF8");
         //读取参数id
         String id_str = request.getParameter("id");
         int id = Integer.parseInt(id_str);

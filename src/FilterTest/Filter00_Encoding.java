@@ -21,18 +21,14 @@ public class Filter00_Encoding implements Filter {
         String path = request.getRequestURI();
         //获取请求的方法
         String method = request.getMethod();
-        if (path.contains("myapp") || path.contains("js") || path.contains("html")){
-            System.out.println("未设置字符编码格式");
-        } else {
-            System.out.println(method);
-            //给剩下的请求设置响应编码格式为utf8
-            response.setContentType("text/html;charset=UTF-8");
-            System.out.println("设置响应对象字符编码格式为utf8");
-            //如果是添加和修改方法则设置请求编码格式
-            if (method.equals("POST")||method.equals("PUT")){
-                request.setCharacterEncoding("UTF-8");
-                System.out.println("设置请求对象字符编码格式为utf8");
-            }
+        System.out.println(method);
+        //给剩下的请求设置响应编码格式为utf8
+        response.setContentType("text/html;charset=UTF-8");
+        System.out.println("设置响应对象字符编码格式为utf8");
+        //如果是添加和修改方法则设置请求编码格式
+        if (method.equals("POST")||method.equals("PUT")){
+            request.setCharacterEncoding("UTF-8");
+            System.out.println("设置请求对象字符编码格式为utf8");
         }
         //放行
         chain.doFilter(req,resp);

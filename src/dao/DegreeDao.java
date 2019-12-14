@@ -56,14 +56,14 @@ public final class DegreeDao {
 		//在该连接上创建预编译语句对象
 		PreparedStatement preparedStatement = connection.prepareStatement(deleteDegree_sql);
 		//为预编译参数赋值
-		preparedStatement.setInt(1,id);
+		preparedStatement.setInt(1, id);
 		//执行预编译语句
 		ResultSet resultSet = preparedStatement.executeQuery();
-		if (resultSet.next()){
-			degree = new Degree(resultSet.getInt("id"),resultSet.getString("description"),resultSet.getString("no"),resultSet.getString("remarks"));
+		if (resultSet.next()) {
+			degree = new Degree(resultSet.getInt("id"), resultSet.getString("description"), resultSet.getString("no"), resultSet.getString("remarks"));
 		}
 		//关闭资源
-		JdbcHelper.close(resultSet,preparedStatement,connection);
+		JdbcHelper.close(resultSet, preparedStatement, connection);
 		return degree;
 	}
 	public boolean add(Degree degree) throws SQLException,ClassNotFoundException{

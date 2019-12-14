@@ -18,7 +18,6 @@ public class LoginController extends HttpServlet {
         //定义string类型的username、password字段分别等于请求得到的参数username、password
         String user_json = JSONUtil.getJSON(request);
         User user = JSON.parseObject(user_json,User.class);
-
         String username = user.getUsername();
         String password = user.getPassword();
         //创建json对象message，以便于向前端响应信息
@@ -34,8 +33,8 @@ public class LoginController extends HttpServlet {
                 //10分钟未操作则session失效
                 session.setMaxInactiveInterval(10 * 60);
                 session.setAttribute("currentUser",loggedUser);
+                String teacher_json = JSONObject.toJSONString(loggedUser.getTeacher());
                 //响应并打印出数据信息
-               String teacher_json = JSONObject.toJSONString(loggedUser.getTeacher());
                response.getWriter().println(teacher_json);
                 //此处应重定向到索引页（菜单页）
                 return;
