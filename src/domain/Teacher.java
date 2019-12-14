@@ -19,7 +19,6 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
                    Department department) {
 		this(no,name, title, degree, department);
 		this.id = id;
-
 	}
 	//定义构造器
 	public Teacher(
@@ -46,46 +45,35 @@ public final class Teacher implements Comparable<Teacher>,Serializable {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getNo() {
-		return no;
-	}
-
-	public void setNo(String no) {
-		this.no = no;
-	}
 	public String getName() {
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public String getNo() {
+		return no;
 	}
 
 	public ProfTitle getTitle() {
 		return this.profTitle;
 	}
 
-	public void setTitle(ProfTitle title) {
-		this.profTitle = title;
-	}
-
 	public Degree getDegree() {
 		return degree;
-	}
-
-	public void setDegree(Degree degree) {
-		this.degree = degree;
 	}
 
 	public Department getDepartment() {
 		return department;
 	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setNo(String no) {
+		this.no = no;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setTitle(ProfTitle title) {
+		this.profTitle = title;
 	}
 	@Override
 	public int compareTo(Teacher o) {

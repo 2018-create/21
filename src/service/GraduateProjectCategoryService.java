@@ -14,28 +14,20 @@ public final class GraduateProjectCategoryService {
 	public static GraduateProjectCategoryService getInstance(){
 		return graduateProjectCategoryService;
 	}
-
 	//定义相关所需的方法(增删改查)
 	public Collection<GraduateProjectCategory> findAll() throws SQLException {
 		return graduateProjectCategoryDao.findAll();
 	}
-
 	public GraduateProjectCategory find(Integer id) throws SQLException {
 		return graduateProjectCategoryDao.find(id);
 	}
-
 	public boolean update(GraduateProjectCategory GraduateProjectCategory) throws SQLException,ClassNotFoundException{
 		return graduateProjectCategoryDao.update(GraduateProjectCategory);
 	}
-
 	public boolean delete(Integer id) throws SQLException, ClassNotFoundException {
 		return graduateProjectCategoryDao.delete(id);
 	}
-
-
 	public boolean add(GraduateProjectCategory GraduateProjectCategory) throws SQLException, ClassNotFoundException {
 		return graduateProjectCategoryDao.add(GraduateProjectCategory);
 	}
-
-
 }

@@ -46,5 +46,5 @@ public final class GraduateProjectCategory implements Comparable<GraduateProject
 	public int compareTo(GraduateProjectCategory o) {
 		// TODO Auto-generated method stub
 		return this.id-o.id;
-	}		
+	}
 }

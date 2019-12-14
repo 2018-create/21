@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Filter00_Encoding implements Filter {
     public void destroy() {
     }
-
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         //打印过滤器开始
         System.out.println("Filter 0 - encoding begins");

@@ -26,20 +26,15 @@ public class Filter10_LoginSession implements Filter {
         //如果路径中包含。。则对其进行放行
         if (path.contains("/login.ctl") ||
                 path.contains("/logout.ctl") ||
-                path.contains("/getSession") ||
-                path.contains("/createSession") ||
-                path.contains("/showCookie") ||
                 path.contains("index.html") ||
                 path.contains("myapp")) {//let login and logout go
             //放行，打印过滤器结束
             chain.doFilter(req, resp);
             System.out.println("Filter 20 - LoginSessionFilter ends!");
         }else  if (session != null && session.getAttribute("currentUser") != null){
-            //if login ,then go
             chain.doFilter(req,resp);
             System.out.println("Filter 20 - LoginSessionFilter ends!");
         }else {
-            //u have to login firstly
             //如果没有登录则提示登录并不放行
             response.getWriter().println("您没有登录，请登录");
         }

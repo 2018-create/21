@@ -32,7 +32,6 @@ public final class GraduateProjectCategoryDao {
 		JdbcHelper.close(resultSet,statement,connection);
 		return graduateProjectCategorys;
 	}
-
 	public GraduateProjectCategory find(Integer id) throws SQLException{
 		GraduateProjectCategory graduateProjectCategory = null;
 		Connection connection = JdbcHelper.getConn();
@@ -70,7 +69,6 @@ public final class GraduateProjectCategoryDao {
 		JdbcHelper.close(preparedStatement,connection);
 		return affectedRowNum>0;
 	}
-
 
 	//delete方法，根据GraduateProjectCategory的id值，删除数据库中对应的GraduateProjectCategory对象
 	public boolean delete(int id) throws ClassNotFoundException,SQLException{

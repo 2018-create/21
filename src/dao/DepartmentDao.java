@@ -34,9 +34,10 @@ public final class DepartmentDao {
 		}
 		//关闭资源
 		JdbcHelper.close(resultSet,preparedStatement,connection);
+		//返回结果集对象
 		return departments;
 	}
-	//返回结果集对象
+
 	public Collection<Department> findAll(){
 		Collection<Department> departments = new TreeSet<Department>();
 		try{
