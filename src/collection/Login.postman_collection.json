@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f2bf354c-483b-4252-8104-c84972c0602b",
+		"_postman_id": "8f3a4e56-c9fb-4d20-94dd-43513e674535",
 		"name": "Login",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,24 +10,18 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"01\",\n\t\"password\": \"01\"\n}"
+				},
 				"url": {
-					"raw": "localhost:8080/loginController?username=01&password=01",
+					"raw": "localhost:8080/login.ctl",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"loginController"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "01"
-						},
-						{
-							"key": "password",
-							"value": "01"
-						}
+						"login.ctl"
 					]
 				}
 			},
@@ -35,6 +29,28 @@
 		},
 		{
 			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "49.235.219.168:8080/bysj/logout.ctl",
+					"host": [
+						"49",
+						"235",
+						"219",
+						"168"
+					],
+					"port": "8080",
+					"path": [
+						"bysj",
+						"logout.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowCookies",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -57,7 +73,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/createSession",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createSession"
+					]
 				}
 			},
 			"response": []
@@ -68,7 +91,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:8080/getSession",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getSession"
+					]
 				},
 				"description": "\n"
 			},

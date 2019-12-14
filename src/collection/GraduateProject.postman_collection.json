@@ -11,12 +11,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/graduateProject.ctl",
+					"raw": "49.235.219.168:8080/bysj/graduateProject.ctl",
 					"host": [
-						"localhost"
+						"49",
+						"235",
+						"219",
+						"168"
 					],
 					"port": "8080",
 					"path": [
+						"bysj",
 						"graduateProject.ctl"
 					]
 				}
@@ -29,12 +33,16 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/graduateProject.ctl",
+					"raw": "49.235.219.168:8080/bysj/graduateProject.ctl",
 					"host": [
-						"localhost"
+						"49",
+						"235",
+						"219",
+						"168"
 					],
 					"port": "8080",
 					"path": [
+						"bysj",
 						"graduateProject.ctl"
 					]
 				}
@@ -47,12 +55,16 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/graduateProject.ctl",
+					"raw": "49.235.219.168:8080/bysj/graduateProject.ctl",
 					"host": [
-						"localhost"
+						"49",
+						"235",
+						"219",
+						"168"
 					],
 					"port": "8080",
 					"path": [
+						"bysj",
 						"graduateProject.ctl"
 					]
 				}
@@ -65,12 +77,16 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/graduateProject.ctl",
+					"raw": "49.235.219.168:8080/bysj/graduateProject.ctl",
 					"host": [
-						"localhost"
+						"49",
+						"235",
+						"219",
+						"168"
 					],
 					"port": "8080",
 					"path": [
+						"bysj",
 						"graduateProject.ctl"
 					]
 				}

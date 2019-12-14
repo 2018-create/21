@@ -7,11 +7,42 @@ description varchar(255) not null,
 remarks varchar(255),
 primary key(id)
 );
+
 create table School(
 id bigint not null auto_increment,
 description varchar(255) not null,
 no varchar(255) not null,
 remarks varchar(255),
+primary key (id)
+);
+
+create table GraduateProjectStatus(
+id bigint not null auto_increment,
+description varchar(255) not null,
+no varchar(255) not null,
+remarks varchar(255),
+primary key (id)
+);
+create table GraduateProjectType(
+id bigint not null auto_increment,
+description varchar(255) not null,
+no varchar(255) not null,
+remarks varchar(255),
+primary key (id)
+);
+create table GraduateProjectCategory(
+id bigint not null auto_increment,
+description varchar(255) not null,
+no varchar(255) not null,
+remarks varchar(255),
+primary key (id)
+);
+create table User(
+id bigint not null auto_increment,
+username varchar(255) not null,
+password varchar(255) not null,
+teacher_id bigint not null,
+FOREIGN KEY(teacher_id) REFERENCES Teacher(id),
 primary key (id)
 );
 create table Department(
@@ -33,6 +64,7 @@ primary key(id)
 );
 create table Teacher(
 id bigint not null auto_increment,
+no varchar(255) not null,
 name varchar(255) not null,
 profTitle_id bigint not null,
 degree_id bigint not null,
@@ -43,6 +75,17 @@ FOREIGN KEY(profTitle_id) REFERENCES ProfTitle(id),
 primary key (id)
 );
 
+create table GraduateProject (
+id bigint not null auto_increment,
+title varchar(255) not null,
+graduateProjectCategory_id bigint not null,
+graduateProjectType_id bigint not null,
+teacher_id bigint not null,
+FOREIGN KEY(graduateProjectCategory_id) REFERENCES GraduateProjectCategory(id),
+FOREIGN KEY(graduateProjectType_id) REFERENCES GraduateProjectType(id),
+FOREIGN KEY(teacher_id) REFERENCES Teacher(id),
+primary key (id)
+);
 FOREIGN KEY(department_id) REFERENCES Department(id),
 
 DELIMITER //
@@ -70,7 +113,7 @@ values(1,"01","教授"," ");
 insert into Degree(id,no,description,remarks) 
 values(1,"01","博士"," ");
 insert into Teacher(id,name,profTitle_id,degree_id,department_id) 
-values(1,"刘梅",1,1,1);
+values(2,"刘梅1",1,1,1);
 drop
 show  procedure status like'sp%' \G;
 
@@ -87,3 +130,6 @@ int profTitle_id = Integer.parseInt(jsonObject.getString("profTitle_id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        
+        mvnrepository.com/artifact/javax.servlet-api/4.0.1
